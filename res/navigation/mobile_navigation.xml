@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_planer">
+
+    <fragment
+        android:id="@+id/nav_planer"
+        android:name="de.gruppe16.stundenplaner.ui.planer.PlanerFragment"
+        android:label="@string/menu_planer"
+        tools:layout="@layout/fragment_planer" />
+
+    <fragment
+        android:id="@+id/nav_passwords"
+        android:name="de.gruppe16.stundenplaner.ui.passwords.PasswordsFragment"
+        android:label="@string/menu_passwords"
+        tools:layout="@layout/fragment_passwords">
+            <action android:id="@+id/action_passwordsFragment_to_passwordListFragment"
+                app:destination="@id/passwordListFragment" />
+            <action
+                android:id="@+id/action_passwords_to_passwordRegisterFragment"
+                app:destination="@id/passwordRegisterFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/passwordListFragment"
+        android:name="de.gruppe16.stundenplaner.ui.passwords.PasswordListFragment"
+        android:label="Passwords List"
+        tools:layout="@layout/fragment_password_list">
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <argument
+            android:name="key"
+            app:argType="string" />
+        <argument
+            android:name="index"
+            app:argType="string" />
+        <action android:id="@+id/action_passwordListFragment_to_passwordItemFragment"
+            app:destination="@id/passwordItemFragment" />
+        <action android:id="@+id/action_passwordListFragment_to_passwordItemEditFragment"
+            app:destination="@id/passwordItemEditFragment" />
+        <action
+            android:id="@+id/action_passwordListFragment_to_nav_passwords"
+            app:destination="@id/nav_passwords" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/passwordRegisterFragment"
+        android:name="de.gruppe16.stundenplaner.ui.passwords.PasswordRegisterFragment"
+        android:label="Password Register"
+        tools:layout="@layout/fragment_password_register">
+        <action android:id="@+id/action_passwordRegister_to_passwordsFragment"
+            app:destination="@id/nav_passwords" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/passwordItemFragment"
+        android:name="de.gruppe16.stundenplaner.ui.passwords.PasswordItemFragment"
+        android:label="Passwords Item"
+        tools:layout="@layout/fragment_password_item">
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <argument
+            android:name="key"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_passwordItemFragment_to_passwordListFragment"
+            app:destination="@id/passwordListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/passwordItemEditFragment"
+        android:name="de.gruppe16.stundenplaner.ui.passwords.PasswordItemEditFragment"
+        android:label="Passwords Item"
+        tools:layout="@layout/fragment_password_item_edit">
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <argument
+            android:name="key"
+            app:argType="string" />
+        <action android:id="@+id/action_passwordsItemEditFragment_to_passwordListFragment"
+            app:destination="@id/passwordListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_notes"
+        android:name="de.gruppe16.stundenplaner.ui.notes.NotesFragment"
+        android:label="@string/menu_notes"
+        tools:layout="@layout/fragment_notes" />
+    <fragment
+        android:id="@+id/nav_maps"
+        android:name="de.gruppe16.stundenplaner.ui.maps.MapsFragment"
+        android:label="@string/menu_maps"
+        tools:layout="@layout/fragment_maps" />
+    <fragment
+        android:id="@+id/nav_modules"
+        android:name="de.gruppe16.stundenplaner.ui.modules.ModulesFragment"
+        android:label="@string/menu_modules"
+        tools:layout="@layout/fragment_modules" />
+    <fragment
+        android:id="@+id/nav_bundesland"
+        android:name="de.gruppe16.stundenplaner.ui.bundesland.BundeslandFragment"
+        android:label="@string/menu_bundesland"
+        tools:layout="@layout/fragment_bundesland" />
+</navigation>
