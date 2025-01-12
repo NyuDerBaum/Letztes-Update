@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <!-- Declare any variables here -->
+    </data>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:background="?android:attr/selectableItemBackground">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="top">
+
+            <Spinner
+                android:id="@+id/spinner_bundesland"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/bundeslaender_array"
+                android:prompt="@string/bundesland_prompt"
+                android:padding="16dp"
+                android:textSize="18sp" />
+
+            <TableLayout
+                android:id="@+id/table_feiertage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:stretchColumns="1">
+
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Datum"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="left"
+        		android:padding="8dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="  Feiertag"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="left"
+        		android:padding="8dp" />
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </FrameLayout>
+</layout>
